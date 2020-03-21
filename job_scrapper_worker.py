@@ -7,8 +7,6 @@ import pandas as pd
 import requests
 
 
-
-
 def scaper_via_webdrivers(html_page):
     '''
     method uses selenium - webdrivers
@@ -22,9 +20,9 @@ def scaper_via_webdrivers(html_page):
     print("Page Title is : %s" %driver.title)
     driver.quit()
 
-    products=[] #List to store name of the product
-    prices=[] #List to store price of the product
-    ratings=[] #List to store rating of the product
+    jobs=[] #List to job titles name
+    salaries=[] #List of job salaries  
+    ratings=[] #List to job rating
     #driver.get("<a href="https://www.flipkart.com/laptops/">https://www.flipkart.com/laptops/</a>~buyback-guarantee-on-laptops-/pr?sid=6bo%2Cb5g&uniq")
     return
 
@@ -68,6 +66,5 @@ page_link2 = 'https://www.seek.com.au/mathematicians-jobs'
 
 #scaper_via_webdrivers depricated in favour of scaper_via_webdrivers due to transition to lambda code base libraries
 #scaper_via_webdrivers(page_link1) 
-#scaper_via_requests(page_link1)
-
+scaper_via_requests(page_link1)
 

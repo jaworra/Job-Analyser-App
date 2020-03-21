@@ -9,7 +9,7 @@ files in parent folder require immediate attention
 - website build
 
 #### languages libraries
-- Python 3.7 (Selenium,BeautifulSoup,Pandas)
+- Python 3.7 (Requests,Selenium,BeautifulSoup4,Pandas)
 - Javascript (React, D3)
 
 #### enviroment

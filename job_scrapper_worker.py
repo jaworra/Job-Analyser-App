@@ -40,10 +40,25 @@ def scaper_via_requests(html_page):
     print(page_content.body.div.div.div.text.strip()) #Statistician Jobs in All Australia
     
     for hit in page_content.findAll(attrs={'class' : '_2iNL7wI'}):
-        hit = hit.text.strip()
-        print(hit) #returns all jobs   
-    
-    
+        job_title = hit.text.strip()
+        job_type = hit.find_next("p").text.strip().replace("This is a ","").replace("job","").rstrip()
+        print(job_title + " (" + job_type + ")") #returns all jobs   
+
+    #remove this below code...
+    for hit2 in page_content.findAll(attrs={'class' : ['Eadjc1o','_2iNL7wI']}):
+        job_descrip = hit2.text.strip() 
+        print(job_descrip)     
+    '''
+    body = page_content.find('body')
+    for job_title in page_content.findAll(attrs={'class' : '_2iNL7wI'}):
+        print(job_title) #returns all jobs  
+        #tag = job_title.find_next("p")
+        #print(tag)
+        #for job_descrip in job_title.findAll(attrs={'class' : 'Eadjc1o'}):
+        #    print(job_descrip) #returns all job
+        #hit = hit.text.strip()
+         
+    '''
     #print(page_content.body.div.div.text.strip()) 
     body_section = page_content.body.div.div
     #print(page_content.body.div.div) 

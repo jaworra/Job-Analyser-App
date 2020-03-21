@@ -36,15 +36,39 @@ def scaper_via_requests(html_page):
     page_response = requests.get(html_page, timeout=5)
     page_content = BeautifulSoup(page_response.content, "html.parser")
 
-    print(page_content)
-
-    textContent = []
-    for i in range(0, 20):
-        paragraphs = page_content.find_all("p")[i].text
-        textContent.append(paragraphs)  
+    #just body extract with charcters
+    print(page_content.body.div.div.div.text.strip()) #Statistician Jobs in All Australia
+    
+    for hit in page_content.findAll(attrs={'class' : '_2iNL7wI'}):
+        hit = hit.text.strip()
+        print(hit) #returns all jobs   
+    
+    
+    #print(page_content.body.div.div.text.strip()) 
+    body_section = page_content.body.div.div
+    #print(page_content.body.div.div) 
+    #mydivs = page_content.findAll("body", class_= "_2iNL7wI")
+    #print(mydivs)
+    #soup = BeautifulSoup(html_page)
+    #print(page_content.find('div data-search-sol-meta='))
+    #print(page_content.find("body", id="aria-label"))
+    #extract body from seek html
+    #body = page_content.find('body')
+    #print(body)
+    #print(soup.find("body", class_="col-l-4 mtop pagination-number")["aria-label"] )
     return
 
+    textContent = []
+    job_titles = []
+    for i in range(0, 20):
+        paragraphs = page_content.find_all("p")[i].text
+        textContent.append(paragraphs) 
 
+
+    return
+
+'''
+#Future implemenation
 #loop through a list of job sites
 dataList = [{'seek_stat': 'https://www.seek.com.au/statistician-jobs'},
             {'seek_math': 'https://www.seek.com.au/mathematicians-jobs'},
@@ -59,6 +83,7 @@ dataList = [{'seek_stat': 'https://www.seek.com.au/statistician-jobs'},
 for index in range(len(dataList)):
     for key in dataList[index]:
         print(dataList[index][key])
+'''
 
 #scrape from the following websites
 page_link1 = 'https://www.seek.com.au/statistician-jobs'

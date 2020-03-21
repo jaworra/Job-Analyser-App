@@ -6,6 +6,9 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import requests
 
+
+
+
 def scaper_via_webdrivers(html_page):
     '''
     method uses selenium - webdrivers
@@ -44,11 +47,27 @@ def scaper_via_requests(html_page):
     return
 
 
+#loop through a list of job sites
+dataList = [{'seek_stat': 'https://www.seek.com.au/statistician-jobs'},
+            {'seek_math': 'https://www.seek.com.au/mathematicians-jobs'},
+            {'indeed_stat': 'https://au.indeed.com/jobs?q=statistician&l='},
+            {'indeed_math': 'https://au.indeed.com/jobs?q=mathematician&l='},
+            {'jora_stat': 'https://au.jora.com/j?q=Statistician&l=Australia&button=&sp=search'}, # format -- https://au.jora.com/cms/get-your-feed-included-on-jora
+            {'jora_math': 'https://au.jora.com/j?q=Mathematician&l=Australia&button=&sp=search#email_alert_modal'},
+            {'linkedIn_math': 'https://www.linkedin.com/jobs/search/?geoId=101452733&keywords=statistician&location=Australia'},
+            {'linkedIn_math': 'https://www.linkedin.com/jobs/search/?keywords=mathematician'},
+            #{'monster_math': ''}, #not provided in australia
+            ]
+for index in range(len(dataList)):
+    for key in dataList[index]:
+        print(dataList[index][key])
+
 #scrape from the following websites
 page_link1 = 'https://www.seek.com.au/statistician-jobs'
 page_link2 = 'https://www.seek.com.au/mathematicians-jobs'
 
-#scaper_via_webdrivers(page_link1)
-scaper_via_requests(page_link1)
+#scaper_via_webdrivers depricated in favour of scaper_via_webdrivers due to transition to lambda code base libraries
+#scaper_via_webdrivers(page_link1) 
+#scaper_via_requests(page_link1)
 
 

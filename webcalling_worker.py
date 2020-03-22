@@ -23,11 +23,11 @@ def scaper_via_webdrivers(html_page):
     driver.get(page_link1)
     print("Page Title is : %s" %driver.title)
     driver.quit()
-
+    '''
     jobs=[] #List to job titles name
     salaries=[] #List of job salaries  
     ratings=[] #List to job rating
-    #driver.get("<a href="https://www.flipkart.com/laptops/">https://www.flipkart.com/laptops/</a>~buyback-guarantee-on-laptops-/pr?sid=6bo%2Cb5g&uniq")
+    '''
     return
 
 def scaper_via_requests(html_page):

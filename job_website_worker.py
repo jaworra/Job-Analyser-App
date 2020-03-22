@@ -5,11 +5,17 @@ from selenium import webdriver
 import requests
 import webscrapping_worker as webscape
 
+
 def scaper_via_webdrivers(html_page):
-    '''
-    method uses selenium - webdrivers
-    requires webpage
-    '''
+    """ Method callling website uses selenium - webdrivers
+    
+    Arguments:
+        html_page {string} -- Name of webpage
+    
+    Returns:
+        string -- Summarying information on website
+    """
+
     #https://www.edureka.co/blog/web-scraping-with-python/
 
     #place chrome driver in folder and added to path
@@ -24,19 +30,29 @@ def scaper_via_webdrivers(html_page):
     #driver.get("<a href="https://www.flipkart.com/laptops/">https://www.flipkart.com/laptops/</a>~buyback-guarantee-on-laptops-/pr?sid=6bo%2Cb5g&uniq")
     return
 
-def scaper_via_requests(html_page):    
-    '''
-    method with requests
-    requires webpage
-    '''
+def scaper_via_requests(html_page):
+    """ Method callling website with requests
+    
+    Arguments:
+        html_page {string} -- Name of webpage
+    
+    Returns:
+        string -- Summarying information on website
+    """
+
     #https://codeburst.io/web-scraping-101-with-python-beautiful-soup-bb617be1f486
 
     try:
         page_response = requests.get(html_page, timeout=5)
     except:
         print("error - with calling website")
+        return #for list pass try next key
 
-    webscape.seek_isolate_contents(page_response,'seek')
+    try:
+        webscape.seek_isolate_contents(page_response,'seek')
+    except:
+        print("error - isolating key values in website")
+        return #for list pass try next key
 
 #scrape from the following websites
 page_link1 = 'https://www.seek.com.au/statistician-jobs'

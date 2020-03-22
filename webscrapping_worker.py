@@ -1,14 +1,18 @@
 #isolating contents from different webpages
 from bs4 import BeautifulSoup
 import pandas as pd
+import json
 
 def seek_isolate_contents (page_response, company):
-    '''
-    Looks at Seek page to isolate relevant material to return
-
-
-    '''
-
+    """Looks at Seek page to isolate relevant material
+    
+    Arguments:
+        page_response {string} -- Contents of webpage
+        company {string} -- Name of company
+    """
+   
+    #https://towardsdatascience.com/introduction-to-web-scraping-with-beautifulsoup-e87a06c2b857
+    
     print(company)
     page_content = BeautifulSoup(page_response.content, "html.parser")
 
@@ -25,6 +29,8 @@ def seek_isolate_contents (page_response, company):
     for hit2 in page_content.findAll(attrs={'class' : ['Eadjc1o','_2iNL7wI']}):
         job_descrip = hit2.text.strip() 
         print(job_descrip)     
+
+
     '''
     body = page_content.find('body')
     for job_title in page_content.findAll(attrs={'class' : '_2iNL7wI'}):

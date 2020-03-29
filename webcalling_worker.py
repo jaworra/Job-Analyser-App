@@ -5,7 +5,6 @@ from selenium import webdriver
 import requests
 import webscrapping_worker as webscape
 
-
 def scaper_via_webdrivers(html_page):
     """ Method callling website uses selenium - webdrivers
     
@@ -54,11 +53,19 @@ def scaper_via_requests(html_page):
         print("error - isolating key values in website")
         return #for list pass try next key
 
-#scrape from the following websites
-page_link1 = 'https://www.seek.com.au/statistician-jobs'
-page_link2 = 'https://www.seek.com.au/mathematicians-jobs'
 
-#scaper_via_webdrivers depricated in favour of scaper_via_webdrivers due to transition to lambda code base libraries
-#scaper_via_webdrivers(page_link1) 
-scaper_via_requests(page_link1)
+def main():
+    #scrape from the following websites
+    page_link1 = 'https://www.seek.com.au/statistician-jobs'
+    page_link2 = 'https://www.seek.com.au/mathematicians-jobs'
 
+    print("Reading data from Web")
+    #scaper_via_webdrivers depricated in favour of scaper_via_webdrivers due to transition to lambda code base libraries
+    #scaper_via_webdrivers(page_link1) 
+    scaper_via_requests(page_link1)
+
+    print("Processig data from Web")
+    print("Writing data to databases")
+
+if __name__ == "__main__":
+    main()

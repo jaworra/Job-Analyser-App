@@ -68,6 +68,9 @@ def seek_isolate_contents (page_response, company):
     '''
     #Future implemenation
     #loop through a list of job sites
+
+    #todo: add website:glassdoor
+    #e.g:  https://www.glassdoor.com.au/Job/australia-data-scientist-jobs-SRCH_IL.0,9_IN16_KO10,24.htm
     dataList = [{'seek_stat': 'https://www.seek.com.au/statistician-jobs'},
                 {'seek_math': 'https://www.seek.com.au/mathematicians-jobs'},
                 {'indeed_stat': 'https://au.indeed.com/jobs?q=statistician&l='},
